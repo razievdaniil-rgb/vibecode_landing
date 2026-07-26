@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ---- Palette: graphite base, molten voltage-orange primary, ion-blue lab accent ---- */
+  --color-graphite-950: #0b0c0e;
+  --color-graphite-900: #101215;
+  --color-graphite-850: #16181c;
+  --color-graphite-800: #1d2025;
+  --color-graphite-700: #2a2e35;
+  --color-graphite-600: #3a3f47;
+
+  --color-bone: #f4f2ec;
+  --color-bone-dim: #b9b7af;
+  --color-bone-mute: #7d7c76;
+
+  --color-volt: #ff3d14; /* molten orange — primary energy accent */
+  --color-volt-bright: #ff5a2e;
+  --color-volt-deep: #cc2c07;
+
+  --color-ion: #4d63ff; /* ion blue — clinical / data accent, used sparingly */
+  --color-ion-bright: #6f83ff;
+
+  /* ---- Type ---- */
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  /* ---- Motion ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-graphite-700);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-graphite-950);
+    color: var(--color-bone);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-volt);
+    color: var(--color-graphite-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-volt);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@utility display-tight {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-bone-mute);
+}
+
+/* Lenis smooth-scroll base */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Thin scrollbar, on-brand */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-graphite-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-graphite-700);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-volt);
+}
