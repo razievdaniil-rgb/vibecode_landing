@@ -23,9 +23,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
-      - run: npm ci
+      # `npm install` (not `npm ci`): the lockfile is generated on Windows and
+      # npm cannot record every Linux-only optional/native dep branch, so strict
+      # `npm ci` fails on the runner. `npm install` reconciles for the runner's
+      # platform. camera-controls (via drei) also requires Node >= 22.
+      - run: npm install --no-audit --no-fund
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
