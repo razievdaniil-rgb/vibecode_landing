@@ -1,5 +1,6 @@
 import { trust } from '../data/content'
 import { Reveal } from './ui/Reveal'
+import { PartnerLogo } from './ui/Logos'
 
 export function TrustBar() {
   return (
@@ -9,15 +10,10 @@ export function TrustBar() {
           <p className="eyebrow text-center">{trust.line}</p>
         </Reveal>
 
-        {/* Fictional partner wordmarks */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+        {/* Fictional partner logo lockups */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {trust.logos.map((logo) => (
-            <span
-              key={logo}
-              className="font-display text-lg font-black uppercase tracking-tight text-bone-mute transition-colors hover:text-bone-dim"
-            >
-              {logo}
-            </span>
+            <PartnerLogo key={logo} name={logo} />
           ))}
         </div>
 

@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen items-center overflow-hidden pt-24"
+      className="relative flex min-h-screen items-center overflow-hidden py-28"
     >
       {/* Ambient volt glow + grid */}
       <div
@@ -49,7 +49,7 @@ export function Hero() {
             {hero.eyebrow}
           </motion.p>
 
-          <h1 className="display-tight text-[clamp(3.5rem,10vw,8rem)]">
+          <h1 className="display-tight text-[clamp(3rem,7.5vw,6.5rem)]">
             {hero.headline.map((word, i) => (
               <motion.span
                 key={word}
@@ -68,7 +68,7 @@ export function Hero() {
           </h1>
 
           <motion.p
-            className="mt-8 max-w-md text-lg leading-relaxed text-bone-dim"
+            className="mt-6 max-w-md text-lg leading-relaxed text-bone-dim"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
@@ -77,7 +77,7 @@ export function Hero() {
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.75 }}
@@ -101,7 +101,7 @@ export function Hero() {
 
           {/* Micro-stats */}
           <motion.dl
-            className="mt-12 flex gap-6 border-t border-graphite-700 pt-6 sm:mt-14 sm:gap-10"
+            className="mt-10 flex gap-6 border-t border-graphite-700 pt-6 sm:gap-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.9 }}
@@ -132,13 +132,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll cue */}
-      <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block">
-        <span className="eyebrow flex flex-col items-center gap-2">
-          Scroll
-          <span className="h-8 w-px bg-gradient-to-b from-volt to-transparent" />
-        </span>
-      </div>
       <span className="sr-only">{brand.disclaimer}</span>
     </section>
   )

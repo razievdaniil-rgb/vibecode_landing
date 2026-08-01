@@ -1,5 +1,6 @@
 import { testimonials } from '../data/content'
 import { Reveal } from './ui/Reveal'
+import { Avatar } from './ui/Avatar'
 
 function Stars({ n }: { n: number }) {
   return (
@@ -42,9 +43,7 @@ export function Testimonials() {
                   “{t.quote}”
                 </blockquote>
                 <figcaption className="mt-6 flex items-center gap-3 border-t border-graphite-800 pt-5">
-                  <span className="grid h-10 w-10 place-items-center bg-graphite-800 font-display font-black text-volt">
-                    {t.name.charAt(0)}
-                  </span>
+                  <Avatar name={t.name} />
                   <span>
                     <span className="block font-semibold text-bone">{t.name}</span>
                     <span className="block font-mono text-xs text-bone-mute">{t.role}</span>
