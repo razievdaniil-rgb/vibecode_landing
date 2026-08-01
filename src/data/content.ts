@@ -46,6 +46,9 @@ export const products = [
     blurb: 'Cold-filtered isolate. 27g protein, 1.4g leucine, zero filler.',
     macro: '27g protein',
     accent: 'volt',
+    image:
+      'https://images.unsplash.com/photo-1693996046865-19217d179161?w=800&q=80&auto=format&fit=crop',
+    imageAlt: 'Scoop of whey protein powder',
   },
   {
     id: 'creatine',
@@ -55,6 +58,9 @@ export const products = [
     blurb: 'Creapure® monohydrate, 5g clinical dose. Just the molecule.',
     macro: '5g / serving',
     accent: 'ion',
+    image:
+      'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=800&q=80&auto=format&fit=crop',
+    imageAlt: 'Scoop of white creatine powder',
   },
   {
     id: 'bcaa',
@@ -64,6 +70,9 @@ export const products = [
     blurb: 'Full 9-amino spread, 2:1:1 ratio. Intra-workout fuel.',
     macro: '7g aminos',
     accent: 'volt',
+    image:
+      'https://images.unsplash.com/photo-1704650312191-005ab02786f5?w=800&q=80&auto=format&fit=crop',
+    imageAlt: 'Scoop of BCAA amino powder',
   },
 ] as const
 

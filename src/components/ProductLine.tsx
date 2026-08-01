@@ -1,4 +1,4 @@
-import type { ComponentType, SVGProps } from 'react'
+import { useState, type ComponentType, type SVGProps } from 'react'
 import { products } from '../data/content'
 import { Reveal } from './ui/Reveal'
 import { JarFallback } from './JarFallback'
@@ -7,6 +7,47 @@ import { IconDumbbell, IconBolt, IconPulse } from './ui/Icons'
 const accentHex: Record<string, string> = {
   volt: '#ff3d14',
   ion: '#4d63ff',
+}
+
+/** Product photo with graceful fallback to the procedural SVG jar. */
+function ProductImage({
+  src,
+  alt,
+  accent,
+  name,
+  macro,
+}: {
+  src: string
+  alt: string
+  accent: string
+  name: string
+  macro: string
+}) {
+  const [failed, setFailed] = useState(false)
+  if (failed) {
+    return (
+      <JarFallback accent={accent} labelName="KINETIK" labelLine={name} macro={macro} />
+    )
+  }
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-graphite-850">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        className="h-full w-full scale-105 object-cover grayscale-[0.15] transition-transform duration-500 group-hover:scale-100"
+      />
+      {/* blend the light product photo into the dark card */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite-950 via-graphite-950/10 to-transparent" />
+      <span
+        className="absolute bottom-3 left-3 font-mono text-[11px] font-bold uppercase tracking-widest"
+        style={{ color: accent }}
+      >
+        {macro}
+      </span>
+    </div>
+  )
 }
 
 const lineIcons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
@@ -56,10 +97,11 @@ export function ProductLine() {
               </div>
 
               <div className="my-6 h-56">
-                <JarFallback
+                <ProductImage
+                  src={p.image}
+                  alt={p.imageAlt}
                   accent={accentHex[p.accent]}
-                  labelName="KINETIK"
-                  labelLine={p.name.toUpperCase()}
+                  name={p.name.toUpperCase()}
                   macro={p.macro.toUpperCase()}
                 />
               </div>
