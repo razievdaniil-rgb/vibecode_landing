@@ -7,7 +7,7 @@ export function FAQ() {
 
   return (
     <section className="border-t border-graphite-800 bg-graphite-900">
-      <div className="mx-auto max-w-4xl px-6 py-28 lg:px-10">
+      <div className="mx-auto max-w-4xl px-6 py-20 md:py-28 lg:px-10">
         <Reveal>
           <p className="eyebrow mb-4">Straight answers</p>
           <h2 className="display-tight text-[clamp(2.2rem,5vw,3.8rem)]">

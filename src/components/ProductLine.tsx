@@ -1,15 +1,23 @@
+import type { ComponentType, SVGProps } from 'react'
 import { products } from '../data/content'
 import { Reveal } from './ui/Reveal'
 import { JarFallback } from './JarFallback'
+import { IconDumbbell, IconBolt, IconPulse } from './ui/Icons'
 
 const accentHex: Record<string, string> = {
   volt: '#ff3d14',
   ion: '#4d63ff',
 }
 
+const lineIcons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  RECOVER: IconDumbbell,
+  POWER: IconBolt,
+  ENDURE: IconPulse,
+}
+
 export function ProductLine() {
   return (
-    <section id="products" className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
+    <section id="products" className="mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-10">
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <Reveal>
           <div>
@@ -36,9 +44,13 @@ export function ProductLine() {
               <div className="flex items-center justify-between">
                 <span className="font-mono text-sm text-bone-mute">{p.index}</span>
                 <span
-                  className="font-mono text-xs font-bold uppercase tracking-widest"
+                  className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest"
                   style={{ color: accentHex[p.accent] }}
                 >
+                  {(() => {
+                    const Icon = lineIcons[p.line]
+                    return Icon ? <Icon width={18} height={18} aria-hidden /> : null
+                  })()}
                   {p.line}
                 </span>
               </div>

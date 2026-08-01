@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { scrollStory } from '../data/content'
 import { JarFallback } from './JarFallback'
+import { HexMesh } from './ui/HexMesh'
 
 /**
  * Sticky "inside the tub" narrative. The jar pins while the reader scrolls
@@ -28,7 +29,7 @@ export function ScrollStory() {
   }, [])
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
+    <section className="mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-10">
       <div className="mb-16">
         <p className="eyebrow mb-4">{scrollStory.eyebrow}</p>
         <h2 className="display-tight text-[clamp(2.2rem,5vw,3.8rem)]">
@@ -40,6 +41,8 @@ export function ScrollStory() {
         {/* Sticky jar */}
         <div className="hidden lg:block">
           <div className="sticky top-24 flex h-[70vh] items-center justify-center">
+            {/* faint molecular lattice behind the tub */}
+            <HexMesh className="pointer-events-none absolute inset-0 text-graphite-700 opacity-30 [mask-image:radial-gradient(50%_50%_at_50%_50%,#000,transparent)]" />
             <div className="relative h-full w-full [animation:bob_5s_ease-in-out_infinite]">
               <JarFallback macro={`0${active + 1} / 0${scrollStory.steps.length}`} />
             </div>

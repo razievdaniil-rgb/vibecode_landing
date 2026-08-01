@@ -101,7 +101,7 @@ export function Hero() {
 
           {/* Micro-stats */}
           <motion.dl
-            className="mt-14 flex gap-10 border-t border-graphite-700 pt-6"
+            className="mt-12 flex gap-6 border-t border-graphite-700 pt-6 sm:mt-14 sm:gap-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.9 }}

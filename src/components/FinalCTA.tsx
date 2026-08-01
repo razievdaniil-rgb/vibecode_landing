@@ -25,7 +25,7 @@ export function FinalCTA() {
             'radial-gradient(50% 80% at 50% 100%, rgba(255,61,20,0.25), transparent 70%)',
         }}
       />
-      <div className="relative mx-auto max-w-4xl px-6 py-32 text-center lg:px-10">
+      <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:py-32 lg:px-10">
         <Reveal>
           <p className="eyebrow mb-6">Ready when you are</p>
           <h2 className="display-tight text-[clamp(3rem,9vw,7rem)]">

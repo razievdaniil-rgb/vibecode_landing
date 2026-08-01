@@ -16,7 +16,7 @@ function Stars({ n }: { n: number }) {
 export function Testimonials() {
   return (
     <section id="reviews" className="border-t border-graphite-800 bg-graphite-900">
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-10">
         <Reveal>
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>

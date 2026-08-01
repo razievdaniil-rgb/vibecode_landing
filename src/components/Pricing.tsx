@@ -3,7 +3,7 @@ import { Reveal } from './ui/Reveal'
 
 export function Pricing() {
   return (
-    <section id="pricing" className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
+    <section id="pricing" className="mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-10">
       <Reveal>
         <div className="text-center">
           <p className="eyebrow mb-4">Stacks &amp; subscriptions</p>
